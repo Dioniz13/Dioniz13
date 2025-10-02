@@ -16,8 +16,4 @@ const sobreMim = {
   objetivo: "Me tornar um desenvolvedor full-stack de excelência"
 };
 ```
-## 🛠️ Tecnologias e Ferramentas
-### 💻 Frontend
-!HTML5
-!CSS3
-!Javascript
+![Snake animation](https://github.com/Dioniz13/Dioniz13/blob/output/github-contribution-grid-snake.svg)
