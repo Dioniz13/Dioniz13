@@ -13,17 +13,19 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        token: ${{ secrets.PERSONAL_TOKEN }}
+        
     - name: Generate snake animation
       uses: Platane/snk@master
       with:
-        github_user_name: ${{ github.repository_owner }}
+        github_user_name: Dioniz13
         svg_out_path: dist/github-contribution-grid-snake.svg
-        gif_out_path: dist/github-contribution-grid-snake.gif
           
     - name: Push to output branch
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
         publish_dir: ./dist
         publish_branch: output
+        force_orphan: true
