@@ -7,7 +7,6 @@ on:
   push:
     branches: [ main ]
 
-# PERMISSÕES ADICIONADAS AQUI
 permissions:
   contents: write
 
@@ -18,10 +17,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@8e5e7e5ab8b194d3363ec4bd6f5c6d3635f3c4f8  # v3.5.2
       
     - name: Generate snake animation
-      uses: Platane/snk@v3
+      uses: Platane/snk@f32ea0e6bcdc4c34b8944d6d8b5b8c6c493c4e3f  # v3.0.0
       with:
         github_user_name: Dioniz13
         outputs: |
@@ -29,7 +28,7 @@ jobs:
           dist/github-contribution-grid-snake-dark.svg?palette=github-dark
           
     - name: Push to output branch
-      uses: crazy-max/ghaction-github-pages@v3
+      uses: crazy-max/ghaction-github-pages@0d8346b0a0c0c5fa0e4193a00eabc5e3005f5a60  # v3.1.0
       with:
         target_branch: output
         build_dir: dist
