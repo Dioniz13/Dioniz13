@@ -23,7 +23,7 @@ const sobreMim = {
 
 ## 🛠️ Tecnologias e Ferramentas  
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username={Dioniz13})](https://github.com/{Dioniz13}/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Dioniz13)](https://github.com/Dioniz13/github-readme-stats)
 
 ## 📂 Repositórios em Destaque
 
