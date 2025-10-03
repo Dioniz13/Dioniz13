@@ -53,9 +53,7 @@ const sobreMim = {
 
 ![Linguagens mais usadas](https://github-readme-stats.vercel.app/api/top-langs/?username=Dioniz13&layout=compact&theme=tokyonight)  
 
-## 🐍 Commits Snake  
 
-![Snake animation](https://github.com/Dioniz13/Dioniz13/blob/output/github-contribution-grid-snake.svg)
 
 ## 🏆 Conquistas no GitHub
 - 🦈 Pull Shark  
