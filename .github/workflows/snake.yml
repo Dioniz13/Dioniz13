@@ -11,43 +11,20 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Generate snake animation
-        run: |
-          mkdir -p dist
-          # Baixa a imagem da cobrinha usando a API do GitHub Contributions
-          curl -s "https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg" \
-            -o dist/github-contribution-grid-snake.svg || true
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Generate snake animation
+      uses: Platane/snk@master
+      with:
+        github_user_name: ${{ github.repository_owner }}
+        outputs: |
+          dist/github-contribution-grid-snake.svg
+          dist/github-contribution-grid-snake-dark.svg?palette=github-dark
           
-          # Alternativa: usa a API de contribuições
-          curl -s "https://github-contributions-api.deno.dev/Dioniz13.svg?format=svg&snake=true" \
-            -o dist/github-contribution-grid-snake.svg
-
-      - name: Deploy to output branch
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Verifica se o branch output existe
-          if git ls-remote --exit-code --heads origin output; then
-            git fetch origin output
-            git checkout output
-          else
-            git checkout --orphan output
-            git reset --hard
-          fi
-          
-          # Move os arquivos gerados
-          mv dist/*.svg ./
-          
-          # Faz commit e push
-          git add *.svg
-          git commit -m "Update snake animation $(date)" || exit 0
-          git push origin output
+    - name: Push to output branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: output
